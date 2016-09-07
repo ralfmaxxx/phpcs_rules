@@ -1,0 +1,25 @@
+{
+    "name": "ralfmaxxx/phpcs_rules",
+    "description": "RUles for PHP",
+    "minimum-stability": "stable",
+    "license": "proprietary",
+    "authors": [
+        {
+            "name": "Rafal Kanski",
+            "email": "rafal.kanski@schibsted.pl"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "PhpCs\\SA\\": "src/"
+        }
+    },
+    "config": {
+        "bin-dir": "bin"
+    },
+    "require": {
+    },
+    "require-dev": {
+        "squizlabs/php_codesniffer": "^2.7"
+    }
+}
