@@ -2,6 +2,7 @@
 
 namespace PhpCs\Rules\PhpDoc\Parser;
 
+use PhpCs\Rules\PhpDoc\TagInterface;
 use PhpCs\Rules\Token;
 
 class ReturnTagParser
@@ -31,8 +32,31 @@ class ReturnTagParser
         return $tokens;
     }
 
+    /**
+     * @param TagInterface $tag
+     *
+     * @return null|Token
+     */
+    public function findOneBefore(TagInterface $tag)
+    {
+        for ($position = $tag->getPosition(); !$this->isCommentBeginning($this->tokens[$position]); $position--) {
+            $token = $this->tokens[$position];
+
+            if ($this->isReturnTag($token)) {
+                return Token::createFromTokenAndHisPosition($token, $position);
+            }
+        }
+
+        return null;
+    }
+
     private function isReturnTag(array $token)
     {
         return $token['type'] == 'T_DOC_COMMENT_TAG' && $token['content'] == self::RETURN_PHP_DOC;
+    }
+
+    private function isCommentBeginning($token)
+    {
+        return $token['type'] == 'T_DOC_COMMENT_OPEN_TAG';
     }
 }

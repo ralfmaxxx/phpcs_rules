@@ -2,7 +2,7 @@
 
 namespace PhpCs\Rules\PhpDoc\Parser;
 
-use PhpCs\Rules\PhpDoc\ReturnTag;
+use PhpCs\Rules\PhpDoc\TagInterface;
 use PhpCs\Rules\Token;
 
 class ThrowTagParser
@@ -17,13 +17,13 @@ class ThrowTagParser
     }
 
     /**
-     * @param ReturnTag $returnTag
+     * @param TagInterface $tag
      *
      * @return null|Token
      */
-    public function findThrowTagAfter(ReturnTag $returnTag)
+    public function findOneAfter(TagInterface $tag)
     {
-        for ($position = $returnTag->getPosition(); !$this->isCommentEnd($this->tokens[$position]); $position++) {
+        for ($position = $tag->getPosition(); !$this->isCommentEnd($this->tokens[$position]); $position++) {
             $token = $this->tokens[$position];
 
             if ($this->isThrowToken($token)) {
@@ -32,6 +32,22 @@ class ThrowTagParser
         }
 
         return null;
+    }
+
+    /**
+     * @return Token[]
+     */
+    public function getThrowTagTokens()
+    {
+        $tokens = [];
+
+        foreach ($this->tokens as $position => $token) {
+            if ($this->isThrowToken($token)) {
+                $tokens[] = Token::createFromTokenAndHisPosition($token, $position);
+            }
+        }
+
+        return $tokens;
     }
 
     private function isThrowToken(array $token)

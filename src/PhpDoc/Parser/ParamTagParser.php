@@ -2,7 +2,7 @@
 
 namespace PhpCs\Rules\PhpDoc\Parser;
 
-use PhpCs\Rules\PhpDoc\ReturnTag;
+use PhpCs\Rules\PhpDoc\TagInterface;
 use PhpCs\Rules\Token;
 
 class ParamTagParser
@@ -17,13 +17,13 @@ class ParamTagParser
     }
 
     /**
-     * @param ReturnTag $returnTag
+     * @param TagInterface $tag
      *
      * @return Token|null
      */
-    public function findParamTokenBefore(ReturnTag $returnTag)
+    public function findOneBefore(TagInterface $tag)
     {
-        for ($position = $returnTag->getPosition(); !$this->isCommentBeginning($this->tokens[$position]); $position--) {
+        for ($position = $tag->getPosition(); !$this->isCommentBeginning($this->tokens[$position]); $position--) {
             $token = $this->tokens[$position];
 
             if ($this->isParamToken($token)) {

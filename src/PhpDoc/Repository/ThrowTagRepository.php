@@ -3,7 +3,7 @@
 namespace PhpCs\Rules\PhpDoc\Repository;
 
 use PhpCs\Rules\PhpDoc\Parser\ThrowTagParser;
-use PhpCs\Rules\PhpDoc\ReturnTag;
+use PhpCs\Rules\PhpDoc\TagInterface;
 use PhpCs\Rules\PhpDoc\ThrowTag;
 
 class ThrowTagRepository
@@ -15,10 +15,31 @@ class ThrowTagRepository
         $this->parser = new ThrowTagParser($tokens);
     }
 
-    public function findOneAfter(ReturnTag $returnTag)
+    /**
+     * @param TagInterface $tag
+     *
+     * @return null|ThrowTag
+     */
+    public function findOneAfter(TagInterface $tag)
     {
-        $throwTagToken = $this->parser->findThrowTagAfter($returnTag);
+        $throwTagToken = $this->parser->findOneAfter($tag);
 
         return $throwTagToken ? ThrowTag::createFromToken($throwTagToken) : null;
+    }
+
+    /**
+     * @return ThrowTag[]
+     */
+    public function findAll()
+    {
+        $throwTags = [];
+
+        $throwTagTokens = $this->parser->getThrowTagTokens();
+
+        foreach ($throwTagTokens as $throwTagToken) {
+            $throwTags[] = ThrowTag::createFromToken($throwTagToken);
+        }
+
+        return $throwTags;
     }
 }

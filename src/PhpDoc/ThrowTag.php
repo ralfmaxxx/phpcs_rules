@@ -4,7 +4,7 @@ namespace PhpCs\Rules\PhpDoc;
 
 use PhpCs\Rules\Token;
 
-final class ThrowTag
+final class ThrowTag implements TagInterface
 {
     /**
      * @var int
@@ -50,8 +50,13 @@ final class ThrowTag
         return $this->position;
     }
 
-    public function isThereEmptyLinesAfter(ReturnTag $returnTag)
+    /**
+     * @param TagInterface $tag
+     *
+     * @return bool
+     */
+    public function isThereEmptyLinesBefore(TagInterface $tag)
     {
-        return $this->getLine() - $returnTag->getLine() > 1;
+        return $this->getLine() - $tag->getLine() > 1;
     }
 }

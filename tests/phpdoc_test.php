@@ -5,9 +5,8 @@ use Exception;
 class A
 {
     /**
-     * @param int $a
+     * @param string
      * @return int
-     *
      * @throws Exception
      */
     public function some_method($a)

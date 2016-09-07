@@ -4,7 +4,7 @@ namespace PhpCs\Rules\PhpDoc\Repository;
 
 use PhpCs\Rules\PhpDoc\ParamTag;
 use PhpCs\Rules\PhpDoc\Parser\ParamTagParser;
-use PhpCs\Rules\PhpDoc\ReturnTag;
+use PhpCs\Rules\PhpDoc\TagInterface;
 
 class ParamTagRepository
 {
@@ -14,13 +14,13 @@ class ParamTagRepository
     }
 
     /**
-     * @param ReturnTag $returnTag
+     * @param TagInterface $tag
      *
      * @return null|ParamTag
      */
-    public function findOneBefore(ReturnTag $returnTag)
+    public function findOneBefore(TagInterface $tag)
     {
-        $paramTagToken = $this->parser->findParamTokenBefore($returnTag);
+        $paramTagToken = $this->parser->findOneBefore($tag);
 
         return $paramTagToken ? ParamTag::createFromToken($paramTagToken) : null;
     }

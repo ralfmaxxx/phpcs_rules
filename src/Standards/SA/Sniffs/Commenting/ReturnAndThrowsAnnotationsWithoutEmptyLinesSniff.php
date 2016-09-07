@@ -2,12 +2,12 @@
 
 use PHP_CodeSniffer_File as PhpCodeSnifferFile;
 use PHP_CodeSniffer_Sniff as PhpSnifferInterface;
-use PhpCs\Rules\PhpDoc\Repository\ParamTagRepository;
 use PhpCs\Rules\PhpDoc\Repository\ReturnTagRepository;
+use PhpCs\Rules\PhpDoc\Repository\ThrowTagRepository;
 
-class SA_Sniffs_Commenting_EmptyLineBeforePhpDocReturnSniff implements PhpSnifferInterface
+class SA_Sniffs_Commenting_ReturnAndThrowsAnnotationsWithoutEmptyLinesSniff implements PhpSnifferInterface
 {
-    const ERROR_MESSAGE = 'There should be empty line between @param and @return';
+    const ERROR_MESSAGE = 'There should not be empty lines between @return and @throws';
 
     /**
      * {@inheritdoc}
@@ -29,14 +29,14 @@ class SA_Sniffs_Commenting_EmptyLineBeforePhpDocReturnSniff implements PhpSniffe
         $tokens = $file->getTokens();
 
         $returnTagRepository = new ReturnTagRepository($tokens);
-        $paramTagRepository = new ParamTagRepository($tokens);
+        $throwTagRepository = new ThrowTagRepository($tokens);
 
         $returnTags = $returnTagRepository->findAll();
 
         foreach ($returnTags as $returnTag) {
-            $paramTag = $paramTagRepository->findOneBefore($returnTag);
+            $throwTag = $throwTagRepository->findOneAfter($returnTag);
 
-            if ($paramTag && !$paramTag->isThereEmptyLineBefore($returnTag)) {
+            if ($throwTag && $throwTag->isThereEmptyLinesBefore($returnTag)) {
                 $file->addError(self::ERROR_MESSAGE, $stackPtr);
             }
         }

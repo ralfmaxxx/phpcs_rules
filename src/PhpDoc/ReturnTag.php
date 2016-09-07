@@ -4,7 +4,7 @@ namespace PhpCs\Rules\PhpDoc;
 
 use PhpCs\Rules\Token;
 
-final class ReturnTag
+final class ReturnTag implements TagInterface
 {
     /**
      * @var int

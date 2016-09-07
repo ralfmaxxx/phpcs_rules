@@ -4,7 +4,7 @@ namespace PhpCs\Rules\PhpDoc;
 
 use PhpCs\Rules\Token;
 
-final class ParamTag
+final class ParamTag implements TagInterface
 {
     private $line;
 
@@ -27,6 +27,7 @@ final class ParamTag
 
         return $self;
     }
+
     /**
      * @return int
      */
@@ -44,12 +45,12 @@ final class ParamTag
     }
 
     /**
-     * @param ReturnTag $returnTag
+     * @param TagInterface $tag
      *
      * @return bool
      */
-    public function isThereEmptyLineBefore(ReturnTag $returnTag)
+    public function isThereEmptyLineBefore(TagInterface $tag)
     {
-        return $returnTag->getLine() - $this->getLine() == 2;
+        return $tag->getLine() - $this->getLine() == 2;
     }
 }

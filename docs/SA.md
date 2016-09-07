@@ -1,6 +1,6 @@
 ## SA STANDARD
 
-### `No empty line between @return and @throws phpdoc`
+### `No empty line between @return and @throws annotation`
 
 Incorrect phpdoc block:
 ```
@@ -19,7 +19,7 @@ Correct phpdoc block:
  */
 ```
 
-### `One empty line between last @param and @return phpdoc`
+### `One empty line between last @param and @return annotation`
 
 Incorrect phpdoc block:
 ```
@@ -35,5 +35,24 @@ Correct phpdoc block:
      * @param int $param
      *
      * @return int
+ */
+```
+
+### `One empty line between last @param and @throws when @return annotation is not present`
+
+Incorrect phpdoc block:
+```
+/**
+     * @param int $param
+     * @throws Exception
+ */
+```
+
+Correct phpdoc block:
+```
+/**
+     * @param int $param
+     *
+     * @throws Exception
  */
 ```

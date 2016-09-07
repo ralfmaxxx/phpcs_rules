@@ -4,6 +4,7 @@ namespace PhpCs\Rules\PhpDoc\Repository;
 
 use PhpCs\Rules\PhpDoc\Parser\ReturnTagParser;
 use PhpCs\Rules\PhpDoc\ReturnTag;
+use PhpCs\Rules\PhpDoc\TagInterface;
 
 class ReturnTagRepository
 {
@@ -28,5 +29,17 @@ class ReturnTagRepository
         }
 
         return $returnTags;
+    }
+
+    /**
+     * @param TagInterface $tag
+     *
+     * @return ReturnTag|null
+     */
+    public function findOneBefore(TagInterface $tag)
+    {
+        $returnTagToken = $this->parser->findOneBefore($tag);
+
+        return $returnTagToken ? ReturnTag::createFromToken($returnTagToken) : null;
     }
 }
