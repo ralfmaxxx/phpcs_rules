@@ -2,13 +2,12 @@
 
 namespace PhpCs\Rules\PhpDoc\Parser;
 
+use PhpCs\Rules\Token;
+
 class ReturnTagParser
 {
     const RETURN_PHP_DOC = '@return';
 
-    /**
-     * @var array
-     */
     private $tokens;
 
     public function __construct(array $tokens)
@@ -17,13 +16,19 @@ class ReturnTagParser
     }
 
     /**
-     * @return array
+     * @return Token[]
      */
     public function getReturnTagTokens()
     {
-        return array_filter($this->tokens, function (array $token) {
-            return $this->isReturnTag($token);
-        });
+        $tokens = [];
+
+        foreach ($this->tokens as $position => $token) {
+            if ($this->isReturnTag($token)) {
+                $tokens[] = Token::createFromTokenAndHisPosition($token, $position);
+            }
+        }
+
+        return $tokens;
     }
 
     private function isReturnTag(array $token)

@@ -23,8 +23,8 @@ class ReturnTagRepository
 
         $returnTagTokens = $this->parser->getReturnTagTokens();
 
-        foreach ($returnTagTokens as $position => $returnTagToken) {
-            $returnTags[] = ReturnTag::createFromTokenAndPosition($returnTagToken, $position);
+        foreach ($returnTagTokens as $returnTagToken) {
+            $returnTags[] = ReturnTag::createFromToken($returnTagToken);
         }
 
         return $returnTags;

@@ -13,16 +13,15 @@ class ParamTagRepository
         $this->parser = new ParamTagParser($tokens);
     }
 
+    /**
+     * @param ReturnTag $returnTag
+     *
+     * @return null|ParamTag
+     */
     public function findOneBefore(ReturnTag $returnTag)
     {
-        $paramTag = null;
-
         $paramTagToken = $this->parser->findParamTokenBefore($returnTag);
 
-        if ($paramTagToken) {
-            $paramTag = ParamTag::createFromTokenAndPosition(current($paramTagToken), key($paramTagToken));
-        }
-
-        return $paramTag;
+        return $paramTagToken ? ParamTag::createFromToken($paramTagToken) : null;
     }
 }

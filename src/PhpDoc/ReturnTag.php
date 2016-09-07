@@ -2,6 +2,8 @@
 
 namespace PhpCs\Rules\PhpDoc;
 
+use PhpCs\Rules\Token;
+
 final class ReturnTag
 {
     /**
@@ -19,16 +21,15 @@ final class ReturnTag
     }
 
     /**
-     * @param array $token
-     * @param int $position
+     * @param Token $token
      *
-     * @return ReturnTag
+     * @return self
      */
-    public static function createFromTokenAndPosition(array $token, $position)
+    public static function createFromToken(Token $token)
     {
         $self = new self();
-        $self->line = $token['line'];
-        $self->position = $position;
+        $self->line = $token->getLine();
+        $self->position = $token->getPosition();
 
         return $self;
     }

@@ -4,10 +4,16 @@ namespace PhpCs\Rules\PhpDoc;
 
 use PhpCs\Rules\Token;
 
-final class ParamTag
+final class ThrowTag
 {
+    /**
+     * @var int
+     */
     private $line;
 
+    /**
+     * @var int
+     */
     private $position;
 
     private function __construct()
@@ -27,6 +33,7 @@ final class ParamTag
 
         return $self;
     }
+
     /**
      * @return int
      */
@@ -43,13 +50,8 @@ final class ParamTag
         return $this->position;
     }
 
-    /**
-     * @param ReturnTag $returnTag
-     *
-     * @return bool
-     */
-    public function isThereEmptyLineBefore(ReturnTag $returnTag)
+    public function isThereEmptyLinesAfter(ReturnTag $returnTag)
     {
-        return $returnTag->getLine() - $this->getLine() == 2;
+        return $this->getLine() - $returnTag->getLine() > 1;
     }
 }
