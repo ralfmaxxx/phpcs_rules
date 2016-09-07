@@ -6,6 +6,7 @@ class A
 {
     /**
      * @param string
+     *
      * @return int
      * @throws Exception
      */
