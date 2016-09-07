@@ -1,8 +1,8 @@
 <?php
 
-namespace PhpCs\SA\PhpDoc\Parser;
+namespace PhpCs\Rules\PhpDoc\Parser;
 
-use PhpCs\SA\PhpDoc\ReturnTag;
+use PhpCs\Rules\PhpDoc\ReturnTag;
 
 class ParamTagParser
 {

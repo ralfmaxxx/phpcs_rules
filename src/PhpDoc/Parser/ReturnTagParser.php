@@ -1,6 +1,6 @@
 <?php
 
-namespace PhpCs\SA\PhpDoc\Parser;
+namespace PhpCs\Rules\PhpDoc\Parser;
 
 class ReturnTagParser
 {

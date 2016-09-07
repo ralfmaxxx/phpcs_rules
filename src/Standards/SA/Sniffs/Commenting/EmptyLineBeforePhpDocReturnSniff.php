@@ -2,8 +2,8 @@
 
 use PHP_CodeSniffer_File as PhpCodeSnifferFile;
 use PHP_CodeSniffer_Sniff as PhpSnifferInterface;
-use PhpCs\SA\PhpDoc\Repository\ParamTagRepository;
-use PhpCs\SA\PhpDoc\Repository\ReturnTagRepository;
+use PhpCs\Rules\PhpDoc\Repository\ParamTagRepository;
+use PhpCs\Rules\PhpDoc\Repository\ReturnTagRepository;
 
 class SA_Sniffs_Commenting_EmptyLineBeforePhpDocReturnSniff implements PhpSnifferInterface
 {

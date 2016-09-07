@@ -1,6 +1,6 @@
 <?php
 
-namespace PhpCs\SA\PhpDoc;
+namespace PhpCs\Rules\PhpDoc;
 
 final class ReturnTag
 {

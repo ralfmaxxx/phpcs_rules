@@ -1,10 +1,10 @@
 <?php
 
-namespace PhpCs\SA\PhpDoc\Repository;
+namespace PhpCs\Rules\PhpDoc\Repository;
 
-use PhpCs\SA\PhpDoc\ParamTag;
-use PhpCs\SA\PhpDoc\Parser\ParamTagParser;
-use PhpCs\SA\PhpDoc\ReturnTag;
+use PhpCs\Rules\PhpDoc\ParamTag;
+use PhpCs\Rules\PhpDoc\Parser\ParamTagParser;
+use PhpCs\Rules\PhpDoc\ReturnTag;
 
 class ParamTagRepository
 {

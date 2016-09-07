@@ -1,9 +1,9 @@
 <?php
 
-namespace PhpCs\SA\PhpDoc\Repository;
+namespace PhpCs\Rules\PhpDoc\Repository;
 
-use PhpCs\SA\PhpDoc\Parser\ReturnTagParser;
-use PhpCs\SA\PhpDoc\ReturnTag;
+use PhpCs\Rules\PhpDoc\Parser\ReturnTagParser;
+use PhpCs\Rules\PhpDoc\ReturnTag;
 
 class ReturnTagRepository
 {

@@ -11,7 +11,7 @@
     ],
     "autoload": {
         "psr-4": {
-            "PhpCs\\SA\\": "src/"
+            "PhpCs\\Rules\\": "src/"
         }
     },
     "config": {
