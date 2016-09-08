@@ -5,17 +5,17 @@
 Incorrect phpdoc block:
 ```
 /**
-     * @return int
-     *
-     * @throws Exception
+ * @return int
+ *
+ * @throws Exception
  */
 ```
 
 Correct phpdoc block:
 ```
 /**
-     * @return int
-     * @throws Exception
+ * @return int
+ * @throws Exception
  */
 ```
 
@@ -24,17 +24,17 @@ Correct phpdoc block:
 Incorrect phpdoc block:
 ```
 /**
-     * @param int $param
-     * @return int
+ * @param int $param
+ * @return int
  */
 ```
 
 Correct phpdoc block:
 ```
 /**
-     * @param int $param
-     *
-     * @return int
+ * @param int $param
+ *
+ * @return int
  */
 ```
 
@@ -43,16 +43,16 @@ Correct phpdoc block:
 Incorrect phpdoc block:
 ```
 /**
-     * @param int $param
-     * @throws Exception
+ * @param int $param
+ * @throws Exception
  */
 ```
 
 Correct phpdoc block:
 ```
 /**
-     * @param int $param
-     *
-     * @throws Exception
+ * @param int $param
+ *
+ * @throws Exception
  */
 ```
