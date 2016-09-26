@@ -6,8 +6,9 @@ class A
 {
     /**
      * @param string
+     * @param string
      *
-     * @return int
+     * @throws Exception
      * @throws Exception
      */
     public function some_method($a)

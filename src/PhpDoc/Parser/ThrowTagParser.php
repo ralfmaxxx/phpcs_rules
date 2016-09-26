@@ -35,6 +35,24 @@ class ThrowTagParser
     }
 
     /**
+     * @param TagInterface $tag
+     *
+     * @return null|Token
+     */
+    public function findOneBefore(TagInterface $tag)
+    {
+        for ($position = $tag->getPosition(); !$this->isCommentBeginning($this->tokens[$position]); $position--) {
+            $token = $this->tokens[$position];
+
+            if ($this->isThrowToken($token)) {
+                return Token::createFromTokenAndHisPosition($token, $position);
+            }
+        }
+
+        return null;
+    }
+
+    /**
      * @return Token[]
      */
     public function getThrowTagTokens()
@@ -58,5 +76,10 @@ class ThrowTagParser
     private function isCommentEnd(array $token)
     {
         return $token['type'] == 'T_DOC_COMMENT_CLOSE_TAG';
+    }
+
+    private function isCommentBeginning($token)
+    {
+        return $token['type'] == 'T_DOC_COMMENT_OPEN_TAG';
     }
 }

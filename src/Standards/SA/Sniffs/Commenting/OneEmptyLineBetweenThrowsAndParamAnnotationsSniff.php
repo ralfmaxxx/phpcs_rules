@@ -37,7 +37,7 @@ class SA_Sniffs_Commenting_OneEmptyLineBetweenThrowsAndParamAnnotationsSniff imp
         $throwTags = $throwTagRepository->findAll();
 
         foreach ($throwTags as $throwTag) {
-            if ($this->isNoReturnTagBefore($returnTagRepository, $throwTag)) {
+            if ($this->isNoReturnTagBefore($returnTagRepository, $throwTag) && $this->isNoThrowTagBefore($throwTagRepository, $throwTag)) {
                 $paramTag = $paramTagRepository->findOneBefore($throwTag);
 
                 if ($paramTag && !$paramTag->isThereEmptyLineBefore($throwTag)) {
@@ -50,6 +50,13 @@ class SA_Sniffs_Commenting_OneEmptyLineBetweenThrowsAndParamAnnotationsSniff imp
     private function isNoReturnTagBefore(ReturnTagRepository $returnTagRepository, TagInterface $tag)
     {
         $returnTag = $returnTagRepository->findOneBefore($tag);
+
+        return is_null($returnTag);
+    }
+
+    private function isNoThrowTagBefore(ThrowTagRepository $throwTagRepository, TagInterface $tag)
+    {
+        $returnTag = $throwTagRepository->findOneBefore($tag);
 
         return is_null($returnTag);
     }

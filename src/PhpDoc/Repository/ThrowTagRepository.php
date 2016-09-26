@@ -28,6 +28,18 @@ class ThrowTagRepository
     }
 
     /**
+     * @param TagInterface $tag
+     *
+     * @return null|ThrowTag
+     */
+    public function findOneBefore(TagInterface $tag)
+    {
+        $throwTagToken = $this->parser->findOneBefore($tag);
+
+        return $throwTagToken ? ThrowTag::createFromToken($throwTagToken) : null;
+    }
+
+    /**
      * @return ThrowTag[]
      */
     public function findAll()
