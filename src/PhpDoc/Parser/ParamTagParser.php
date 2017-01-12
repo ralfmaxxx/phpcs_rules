@@ -23,7 +23,7 @@ class ParamTagParser
      */
     public function findOneBefore(TagInterface $tag)
     {
-        for ($position = $tag->getPosition(); !$this->isCommentBeginning($this->tokens[$position]); $position--) {
+        for ($position = $tag->getPosition() - 1; !$this->isCommentBeginning($this->tokens[$position]); $position--) {
             $token = $this->tokens[$position];
 
             if ($this->isParamToken($token)) {

@@ -8,6 +8,9 @@ use PhpCs\Rules\PhpDoc\TagInterface;
 
 class ReturnTagRepository
 {
+    /**
+     * @var ReturnTagParser
+     */
     private $parser;
 
     public function __construct(array $tokens)

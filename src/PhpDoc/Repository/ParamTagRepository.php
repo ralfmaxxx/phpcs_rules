@@ -8,6 +8,11 @@ use PhpCs\Rules\PhpDoc\TagInterface;
 
 class ParamTagRepository
 {
+    /**
+     * @var ParamTagParser
+     */
+    private $parser;
+
     public function __construct(array $tokens)
     {
         $this->parser = new ParamTagParser($tokens);

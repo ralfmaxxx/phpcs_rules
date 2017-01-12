@@ -8,6 +8,9 @@ use PhpCs\Rules\PhpDoc\ThrowTag;
 
 class ThrowTagRepository
 {
+    /**
+     * @var ThrowTagParser
+     */
     private $parser;
 
     public function __construct(array $tokens)

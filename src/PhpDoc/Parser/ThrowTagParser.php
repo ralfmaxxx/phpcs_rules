@@ -23,7 +23,7 @@ class ThrowTagParser
      */
     public function findOneAfter(TagInterface $tag)
     {
-        for ($position = $tag->getPosition(); !$this->isCommentEnd($this->tokens[$position]); $position++) {
+        for ($position = $tag->getPosition() + 1; !$this->isCommentEnd($this->tokens[$position]); $position++) {
             $token = $this->tokens[$position];
 
             if ($this->isThrowToken($token)) {
@@ -41,7 +41,7 @@ class ThrowTagParser
      */
     public function findOneBefore(TagInterface $tag)
     {
-        for ($position = $tag->getPosition(); !$this->isCommentBeginning($this->tokens[$position]); $position--) {
+        for ($position = $tag->getPosition() - 1; !$this->isCommentBeginning($this->tokens[$position]); $position--) {
             $token = $this->tokens[$position];
 
             if ($this->isThrowToken($token)) {

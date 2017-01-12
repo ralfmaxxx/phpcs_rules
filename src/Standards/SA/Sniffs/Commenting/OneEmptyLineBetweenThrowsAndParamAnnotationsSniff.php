@@ -56,8 +56,8 @@ class SA_Sniffs_Commenting_OneEmptyLineBetweenThrowsAndParamAnnotationsSniff imp
 
     private function isNoThrowTagBefore(ThrowTagRepository $throwTagRepository, TagInterface $tag)
     {
-        $returnTag = $throwTagRepository->findOneBefore($tag);
+        $throwTag = $throwTagRepository->findOneBefore($tag);
 
-        return is_null($returnTag);
+        return is_null($throwTag);
     }
 }
