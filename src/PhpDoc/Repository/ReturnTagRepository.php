@@ -4,7 +4,7 @@ namespace PhpCs\Rules\PhpDoc\Repository;
 
 use PhpCs\Rules\PhpDoc\Parser\ReturnTagParser;
 use PhpCs\Rules\PhpDoc\ReturnTag;
-use PhpCs\Rules\PhpDoc\TagInterface;
+use PhpCs\Rules\TagInterface;
 
 class ReturnTagRepository
 {

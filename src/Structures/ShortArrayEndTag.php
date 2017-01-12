@@ -1,11 +1,11 @@
 <?php
 
-namespace PhpCs\Rules\PhpDoc;
+namespace PhpCs\Rules\Structures;
 
 use PhpCs\Rules\TagInterface;
 use PhpCs\Rules\Token;
 
-final class ThrowTag implements TagInterface
+final class ShortArrayEndTag implements TagInterface
 {
     /**
      * @var int
@@ -29,6 +29,7 @@ final class ThrowTag implements TagInterface
     public static function createFromToken(Token $token)
     {
         $self = new self();
+
         $self->line = $token->getLine();
         $self->position = $token->getPosition();
 
@@ -49,15 +50,5 @@ final class ThrowTag implements TagInterface
     public function getPosition()
     {
         return $this->position;
-    }
-
-    /**
-     * @param TagInterface $tag
-     *
-     * @return bool
-     */
-    public function isThereEmptyLinesBefore(TagInterface $tag)
-    {
-        return $this->getLine() - $tag->getLine() > 1;
     }
 }

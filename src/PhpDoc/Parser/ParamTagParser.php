@@ -2,7 +2,7 @@
 
 namespace PhpCs\Rules\PhpDoc\Parser;
 
-use PhpCs\Rules\PhpDoc\TagInterface;
+use PhpCs\Rules\TagInterface;
 use PhpCs\Rules\Token;
 
 class ParamTagParser

@@ -3,8 +3,8 @@
 namespace PhpCs\Rules\PhpDoc\Repository;
 
 use PhpCs\Rules\PhpDoc\Parser\ThrowTagParser;
-use PhpCs\Rules\PhpDoc\TagInterface;
 use PhpCs\Rules\PhpDoc\ThrowTag;
+use PhpCs\Rules\TagInterface;
 
 class ThrowTagRepository
 {

@@ -1,6 +1,6 @@
 <?php
 
-namespace PhpCs\Rules\PhpDoc;
+namespace PhpCs\Rules;
 
 interface TagInterface
 {

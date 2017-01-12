@@ -10,7 +10,7 @@ class SA_Sniffs_Commenting_OneEmptyLineBetweenParamAndReturnAnnotationsSniff imp
     const ERROR_MESSAGE = 'There should be one empty line between @param and @return';
 
     /**
-     * {@inheritdoc}
+     * {@inheritDoc}
      */
     public function register()
     {
@@ -22,7 +22,7 @@ class SA_Sniffs_Commenting_OneEmptyLineBetweenParamAndReturnAnnotationsSniff imp
     }
 
     /**
-     * {@inheritdoc}
+     * {@inheritDoc}
      */
     public function process(PhpCodeSnifferFile $file, $stackPtr)
     {

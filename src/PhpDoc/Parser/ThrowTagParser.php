@@ -2,7 +2,7 @@
 
 namespace PhpCs\Rules\PhpDoc\Parser;
 
-use PhpCs\Rules\PhpDoc\TagInterface;
+use PhpCs\Rules\TagInterface;
 use PhpCs\Rules\Token;
 
 class ThrowTagParser
@@ -78,7 +78,7 @@ class ThrowTagParser
         return $token['type'] == 'T_DOC_COMMENT_CLOSE_TAG';
     }
 
-    private function isCommentBeginning($token)
+    private function isCommentBeginning(array $token)
     {
         return $token['type'] == 'T_DOC_COMMENT_OPEN_TAG';
     }

@@ -10,7 +10,7 @@ class SA_Sniffs_Commenting_ReturnAndThrowsAnnotationsWithoutEmptyLinesSniff impl
     const ERROR_MESSAGE = 'There should not be empty lines between @return and @throws';
 
     /**
-     * {@inheritdoc}
+     * {@inheritDoc}
      */
     public function register()
     {
@@ -22,7 +22,7 @@ class SA_Sniffs_Commenting_ReturnAndThrowsAnnotationsWithoutEmptyLinesSniff impl
     }
 
     /**
-     * {@inheritdoc}
+     * {@inheritDoc}
      */
     public function process(PhpCodeSnifferFile $file, $stackPtr)
     {

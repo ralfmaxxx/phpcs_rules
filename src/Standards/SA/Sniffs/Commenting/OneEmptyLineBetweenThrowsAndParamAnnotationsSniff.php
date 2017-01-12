@@ -5,14 +5,14 @@ use PHP_CodeSniffer_Sniff as PhpSnifferInterface;
 use PhpCs\Rules\PhpDoc\Repository\ParamTagRepository;
 use PhpCs\Rules\PhpDoc\Repository\ReturnTagRepository;
 use PhpCs\Rules\PhpDoc\Repository\ThrowTagRepository;
-use PhpCs\Rules\PhpDoc\TagInterface;
+use PhpCs\Rules\TagInterface;
 
 class SA_Sniffs_Commenting_OneEmptyLineBetweenThrowsAndParamAnnotationsSniff implements PhpSnifferInterface
 {
     const ERROR_MESSAGE = 'There should be one empty line between @param and @throws when @return tag is not present';
 
     /**
-     * {@inheritdoc}
+     * {@inheritDoc}
      */
     public function register()
     {
@@ -24,7 +24,7 @@ class SA_Sniffs_Commenting_OneEmptyLineBetweenThrowsAndParamAnnotationsSniff imp
     }
 
     /**
-     * {@inheritdoc}
+     * {@inheritDoc}
      */
     public function process(PhpCodeSnifferFile $file, $stackPtr)
     {

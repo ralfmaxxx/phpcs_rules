@@ -56,3 +56,34 @@ Correct phpdoc block:
  * @throws Exception
  */
 ```
+
+### `When array contains more than one line last element should be fallowed by comma`
+
+Incorrect array definition:
+```
+$a = [
+    1,
+    2
+];
+
+```
+
+Correct array definition:
+```
+$a = [
+    1,
+    2
+];
+
+```
+or:
+```
+$a = [1,2];
+
+```
+or:
+or:
+```
+$a = [1,2,];
+
+```

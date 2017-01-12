@@ -2,12 +2,19 @@
 
 namespace PhpCs\Rules\PhpDoc;
 
+use PhpCs\Rules\TagInterface;
 use PhpCs\Rules\Token;
 
 final class ParamTag implements TagInterface
 {
+    /**
+     * @var int
+     */
     private $line;
 
+    /**
+     * @var int
+     */
     private $position;
 
     private function __construct()
@@ -29,7 +36,7 @@ final class ParamTag implements TagInterface
     }
 
     /**
-     * @return int
+     * {@inheritDoc}
      */
     public function getLine()
     {
@@ -37,7 +44,7 @@ final class ParamTag implements TagInterface
     }
 
     /**
-     * @return int
+     * {@inheritDoc}
      */
     public function getPosition()
     {

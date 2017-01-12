@@ -2,6 +2,7 @@
 
 namespace PhpCs\Rules\PhpDoc;
 
+use PhpCs\Rules\TagInterface;
 use PhpCs\Rules\Token;
 
 final class ReturnTag implements TagInterface
@@ -35,7 +36,7 @@ final class ReturnTag implements TagInterface
     }
 
     /**
-     * @return int
+     * {@inheritDoc}
      */
     public function getLine()
     {
@@ -43,7 +44,7 @@ final class ReturnTag implements TagInterface
     }
 
     /**
-     * @return int
+     * {@inheritDoc}
      */
     public function getPosition()
     {

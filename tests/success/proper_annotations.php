@@ -2,6 +2,14 @@
 
 class A
 {
+    const TEST_ARRAY = [1,2,3];
+
+    const TEST_ARRAY_MORE_THAN_ONE_LINE = [
+        1,
+        2,
+        3,
+    ];
+
     /**
      * @param int $a
      *

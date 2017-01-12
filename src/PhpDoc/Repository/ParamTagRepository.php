@@ -4,7 +4,7 @@ namespace PhpCs\Rules\PhpDoc\Repository;
 
 use PhpCs\Rules\PhpDoc\ParamTag;
 use PhpCs\Rules\PhpDoc\Parser\ParamTagParser;
-use PhpCs\Rules\PhpDoc\TagInterface;
+use PhpCs\Rules\TagInterface;
 
 class ParamTagRepository
 {
