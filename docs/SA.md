@@ -57,7 +57,7 @@ Correct phpdoc block:
  */
 ```
 
-### `When array contains more than one line last element should be fallowed by comma`
+### `When array contains more than one line last element should be followed by comma`
 
 Incorrect array definition:
 ```
@@ -72,18 +72,15 @@ Correct array definition:
 ```
 $a = [
     1,
-    2
+    2,
 ];
-
 ```
 or:
 ```
 $a = [1,2];
-
 ```
 or:
 or:
 ```
 $a = [1,2,];
-
 ```
